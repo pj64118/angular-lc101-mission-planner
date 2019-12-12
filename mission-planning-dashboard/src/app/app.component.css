@@ -1,0 +1,5 @@
+.box {
+    color: blue;
+    display: flex;
+    padding: 10px;
+}
