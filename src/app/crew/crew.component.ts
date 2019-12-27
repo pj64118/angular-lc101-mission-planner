@@ -21,7 +21,17 @@ export class CrewComponent implements OnInit {
   }
 
   add(memberName: string, isFirst: boolean) {
-    this.crew.push({name: memberName, firstMission: isFirst});
+    let crewMemberAlreadyExists = false;
+    for (let i=0; i< this.crew.length; i++) {
+      if (this.crew[i]['name'] === memberName) {
+        crewMemberAlreadyExists = true;
+      }
+    }
+    if (crewMemberAlreadyExists) {
+      alert('Cannot add: crew member already added');
+    } else {
+      this.crew.push({name: memberName, firstMission: isFirst});
+    }
   }
 
   remove(member: object) {
